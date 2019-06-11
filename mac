@@ -44,6 +44,8 @@ change_shell_to_zsh() {
   chsh -s "$(command -v zsh)"
   echo "Note that you can always switch back to ${bold}bash${normal} if you change your mind."
   echo "The instructions for changing shells manually are available in the README."
+  echo "Adding oh-my-zsh configs"
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
 # shellcheck disable=SC2154
@@ -230,6 +232,7 @@ number_of_cores=$(sysctl -n hw.ncpu)
 bundle config --global jobs $((number_of_cores - 1))
 
 fancy_echo '...Finished Ruby installation checks.'
+
 
 no_prompt_customizations_in_shell_file() {
   ! grep -qs -e "PS1=" -e "precmd" -e "PROMPT=" "$shell_file"
