@@ -9,8 +9,11 @@ tap 'homebrew/services'
 brew 'postgresql'
 
 brew 'hub'
+brew 'python'
+brew 'pyenv'
 
 cask 'phantomjs'
 cask 'flux'
 cask 'github'
 cask 'sublime-text'
+cask 'atom'
