@@ -48,6 +48,11 @@ change_shell_to_zsh() {
   sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 }
 
+install_nvm() {
+  echo "Installing nvm"
+  sh -c "$(curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.0/install.sh)"
+}
+
 # shellcheck disable=SC2154
 trap 'ret=$?; test $ret -ne 0 && printf "failed\n\n" >&2; exit $ret' EXIT
 
@@ -63,6 +68,7 @@ case "$SHELL" in
     ;;
   *)
     create_bash_profile_and_set_it_as_shell_file
+    install_nvm
     if [ -z "$CI" ]; then
       bold=$(tput bold)
       normal=$(tput sgr0)
