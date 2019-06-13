@@ -1,6 +1,7 @@
 cask_args appdir: '/Applications'
 
 brew 'git'
+brew 'npm'
 
 tap 'heroku/brew'
 brew 'heroku'
